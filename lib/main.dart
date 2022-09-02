@@ -8,7 +8,7 @@ final sl = GetIt.instance;
 void main() {
   sl.registerLazySingleton(
     () => ApiProvider(
-      apiBase: "http://story.samssh.ir",
+      apiBase: "https://story.samssh.ir",
     ),
   );
   runApp(const StoryApplication());
