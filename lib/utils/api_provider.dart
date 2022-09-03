@@ -26,7 +26,7 @@ class ApiProvider {
     Map<String, dynamic>? queryParameters,
   }) async {
     try {
-      final _url = url.replaceFirst('http', 'http');
+      final _url = url.replaceFirst('http', 'https');
       log('GET (Without base): $_url');
       final ans = await http.get(Uri.parse(_url),
           headers: await _getHeaders(withToken: withToken));
@@ -48,7 +48,7 @@ class ApiProvider {
       log('GET: ${Uri.parse(apiBase).path}$url${queryParameters?.toString() ?? ''}');
 
       final route = Uri(
-        scheme: 'http',
+        scheme: 'https',
         host: Uri.parse(apiBase).host,
         path: Uri.parse(apiBase).path + url,
         queryParameters: queryParameters,
