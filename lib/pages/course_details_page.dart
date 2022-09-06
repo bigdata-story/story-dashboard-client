@@ -75,7 +75,7 @@ class _CourseDetailsPageState extends State<CourseDetailsPage> {
                     builder: (context, state) {
                       if (state is RequestHandlerLoaded) {
                         return Text(
-                          state.ans,
+                          formatTime(int.parse(state.ans.toString())),
                           style: Theme.of(context).textTheme.headline5,
                         );
                       }
@@ -121,4 +121,8 @@ class _CourseDetailsPageState extends State<CourseDetailsPage> {
       ),
     );
   }
+}
+
+String formatTime(int seconds) {
+  return '${(Duration(seconds: seconds))}'.split('.')[0].padLeft(8, '0');
 }
