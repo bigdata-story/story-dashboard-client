@@ -22,9 +22,9 @@ class RequestHandlerBloc
     this.queryParameters,
   }) : super(RequestHandlerInitial()) {
     log('Request handler started!');
-    add(Request());
+
     _timer = Timer.periodic(
-      const Duration(seconds: 1),
+      const Duration(seconds: 5),
       (timer) {
         add(Request());
       },
@@ -43,6 +43,7 @@ class RequestHandlerBloc
         }
       }
     });
+    add(Request());
   }
   @override
   Future<void> close() {
